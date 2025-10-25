@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { storage } from '../lib/storage';
-import { Save } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { storage } from "../lib/storage";
+import { Save } from "lucide-react";
 
 export default function ClassStructure() {
   const [structures, setStructures] = useState({
     SY: { num_divisions: 2, batches_per_division: 3 },
     TY: { num_divisions: 2, batches_per_division: 3 },
-    'Final Year': { num_divisions: 1, batches_per_division: 3 },
+    "Final Year": { num_divisions: 1, batches_per_division: 3 },
   });
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function ClassStructure() {
       storage.classStructure.upsert(year, structureData);
     }
 
-    alert('Class structure saved successfully!');
+    alert("Class structure saved successfully!");
   };
 
   return (
@@ -74,9 +74,9 @@ export default function ClassStructure() {
               className="bg-white rounded-xl shadow-lg p-6 border-2 border-slate-200"
             >
               <h3 className="text-xl font-bold text-blue-600 mb-6">
-                {year === 'SY' && 'SY (Second Year)'}
-                {year === 'TY' && 'TY (Third Year)'}
-                {year === 'Final Year' && 'Final Year'}
+                {year === "SY" && "SY (Second Year)"}
+                {year === "TY" && "TY (Third Year)"}
+                {year === "Final Year" && "Final Year"}
               </h3>
 
               <div className="space-y-4">
@@ -89,7 +89,7 @@ export default function ClassStructure() {
                     min="1"
                     value={data.num_divisions}
                     onChange={(e) =>
-                      handleChange(year, 'num_divisions', e.target.value)
+                      handleChange(year, "num_divisions", e.target.value)
                     }
                     className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
@@ -104,7 +104,7 @@ export default function ClassStructure() {
                     min="1"
                     value={data.batches_per_division}
                     onChange={(e) =>
-                      handleChange(year, 'batches_per_division', e.target.value)
+                      handleChange(year, "batches_per_division", e.target.value)
                     }
                     className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
@@ -112,7 +112,7 @@ export default function ClassStructure() {
 
                 <div className="pt-4 border-t border-slate-200">
                   <p className="text-sm text-slate-600">
-                    Total Batches:{' '}
+                    Total Batches:{" "}
                     <span className="font-bold text-green-600 text-lg">
                       {getTotalBatches(year)}
                     </span>
